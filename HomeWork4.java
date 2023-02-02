@@ -3,7 +3,7 @@ import java.io.*;
 
 
 
-public class ClassWork2 {
+public class HomeWork4 {
     public static void main(String[] args) {
         // Сохранить в файл строку используя класс FileWriter
         try(FileWriter writer = new FileWriter("test.txt", false))
@@ -31,7 +31,7 @@ public class ClassWork2 {
             String s;
             while((s=br.readLine())!=null){
                 // Фамилии, имена, отчества, возрас и пол сохраняем в отдельных списках.
-                System.out.println(s);
+                //System.out.println(s);
                 // Риазбиение каждой строки по пробелу и создание списка
                 String[] words = s.split(" ");
                 First_name.add(words[0]);
@@ -47,10 +47,26 @@ public class ClassWork2 {
 
             System.out.println(ex.getMessage());
         }
-        System.out.println(First_name);
-        System.out.println(Second_name);
-        System.out.println(Last_name);
-        System.out.println(Age);
-        System.out.println(Gender);
+        System.out.println("Список имен: " + First_name);
+        System.out.println("Список отчеств: " + Second_name);
+        System.out.println("Список фамилий: " + Last_name);
+        System.out.println("Список возрастов: " + Age);
+        System.out.println("Список полов: " + Gender);
+
+        // Отсортировать по возрасту используя дополнительный список индексов.
+        // Копируем исходный список
+        ArrayList<String> Sorted_List = new ArrayList<>(Age);
+        Collections.sort(Sorted_List);
+        ArrayList<Integer> List_of_indexs = new ArrayList<>();
+        for (String i: Sorted_List) {
+            int index = Age.indexOf(i);
+            List_of_indexs.add(index);
+
+
+
+        }
+        System.out.println("Список отсортированных по индексам: " + List_of_indexs);
+
+        System.out.println("Отсортированный список возроста: " + Sorted_List);
     }
 }
